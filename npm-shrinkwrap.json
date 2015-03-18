@@ -1,0 +1,13 @@
+{
+  "name": "AtlantisJs",
+  "dependencies": {
+    "grunt-dustjs": {
+      "version": "1.1.1",
+      "dependencies": {
+        "dustjs-linkedin": {
+          "version": "2.4.2"
+        }
+      }
+    }
+  }
+}
