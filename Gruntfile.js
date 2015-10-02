@@ -2,8 +2,8 @@
 module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-
   grunt.initConfig({
+      ver: grunt.option('ver') || '',
     watch: {
       options: {
         nospawn: true,
@@ -53,17 +53,20 @@ module.exports = function (grunt) {
 		dest: 'build/js/atlantis.js',
 	  },
 	},
+    cssmin: {
+	  combine: {
+		files: {
+		  'build/js/atlantisjs.css': ['src/css/atlantisjs.css'],
+          'build/js/atlantisjs.orig.css': ['src/css/atlantisjs.orig.css'],
+            'build/js/<%= ver %>/atlantisjs<%= ver %>.css': ['src/css/atlantisjs.alt.css']
+		}
+	  }
+	},
 	uglify: {
 	  my_target: {
 		files: {
 		  'build/js/atlantis.min.js': ['build/js/atlantis.js'],
-		}
-	  }
-	},
-	cssmin: {
-	  combine: {
-		files: {
-		  'build/js/atlantisjs.css': ['src/css/atlantisjs.css'],
+          'build/js/<%= ver %>/atlantis.min.<%= ver %>.js': ['build/js/atlantis.js']
 		}
 	  }
 	},
@@ -96,19 +99,40 @@ module.exports = function (grunt) {
         }
       }
 	},
+    sass: {
+        dist: {
+            files: {
+                'src/css/atlantisjs.alt.css': 'src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss'
+            }
+        }
+    },
+    autoprefixer: {
+        options: {
+            browsers: ['last 2 version', 'ie 8', 'ie 9'],
+            diff: true
+        },
+        single_file: {
+            files:[{
+                expand: true,
+                src: 'src/css/atlantisjs.alt.scss',
+                dest: 'src/css/atlantisjs.ven.css'
+            }]
+        },
+    },
 	copy: {
 	  main: {
 		files: [
 		  {expand: true, cwd: 'src/', src: ['fonts/*'], dest: 'build/js/', filter: 'isFile'}, // includes files in path
+          {expand: true, cwd: 'src/', src: ['fonts/*'], dest: 'build/js/<%= ver %>/', filter: 'isFile'}, // for versioning
 		]
 	  }
 	}
   });
   
   grunt.registerTask('updatebower', function (){
-	var version = grunt.file.read("version.txt");
+	var ver = grunt.file.read("ver.txt");
 	
   }); 
   grunt.registerTask('test', ['typescript:test','jasmine']);   
-  grunt.registerTask('build', ['typescript:src', 'dustjs', 'concat', 'uglify', 'cssmin','copy','compress:js','compress:css']);
+  grunt.registerTask('build', ['typescript:src', 'dustjs', 'concat', 'uglify', 'cssmin','copy','compress:js','compress:css','autoprefixer','sass']);
 };

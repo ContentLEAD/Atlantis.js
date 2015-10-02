@@ -1,0 +1,11 @@
+<div class="ajs-end-of-video-call-to-action-container" style="background:url({model.background|s});background-size:cover;">
+	<div class="ajs-end-of-video-call-to-action image-link">
+        <h2>{model.callToAction.title|s}</h2>
+        <p>{model.callToAction.subtitle|s}</p>
+        {#model.assetGateway}
+        <a href="javascript:void(0)" data-br-form-id="{model.assetGateway.id}" class="br-form-link ajs-call-to-action-button-image"  style="{#model.callToAction.button.position}{pos}:{val};{:else}{/model.callToAction.button.position}">{#model.callToAction.button.image}<img src="{model.callToAction.button.image|s}" class="video-end-image">{:else}{model.callToAction.button.text|s}{/model.callToAction.button.image}</a>
+        {:else}
+		<a class="ajs-call-to-action-button-image" href="{model.callToAction.button.link|s}" style="{#model.callToAction.button.position}{pos}:{val};{:else}{/model.callToAction.button.position}">{#model.callToAction.button.image}<img src="{model.callToAction.button.image|s}" class="video-end-image">{:else}{model.callToAction.button.text|s}{/model.callToAction.button.image}</a>
+        {/model.assetGateway}
+	</div>
+</div>

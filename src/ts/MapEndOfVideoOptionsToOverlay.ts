@@ -10,6 +10,14 @@ module AtlantisJS {
 
         if (typeof endOfVideoOptions.template !== 'undefined') {
             template = endOfVideoOptions.template;
+        } else if(typeof endOfVideoOptions.background !== 'undefined'){
+            if(typeof endOfVideoOptions.callToAction.button.image !== 'undefined'){
+                template = "ajsEndOfVideoCallToActionBackgroundImage";
+            } else{
+                template = "ajsEndOfVideoCallToActionBackground";
+            }
+        } else if(typeof endOfVideoOptions.background !== 'undefined') {
+            template = "ajsEndOfVideoCallToActionBackground";
         } else if (typeof endOfVideoOptions.relatedVideos == 'undefined') {
             template = "ajsEndOfVideoCallToActionDefault";
         } else if (typeof endOfVideoOptions.callToAction == 'undefined') {

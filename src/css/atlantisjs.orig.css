@@ -8,7 +8,7 @@ The control icons are from a custom font. Each icon corresponds to a character
 */
 @font-face {
     font-family: 'Atlantis';
-    src: url('https://d1z1nkr1lc6xgd.cloudfront.net/v1/fonts/atlantisjs.eot?#iefix') format('embedded-opentype'), url('https://d1z1nkr1lc6xgd.cloudfront.net/v1/fonts/atlantisjs.svg') format('svg'), url('https://d1z1nkr1lc6xgd.cloudfront.net/v1/fonts/atlantisjs.woff') format('woff'), url('https://d1z1nkr1lc6xgd.cloudfront.net/v1/fonts/atlantisjs.ttf') format('truetype');
+    src: url('fonts/atlantisjs.eot?#iefix') format('embedded-opentype'), url('fonts/atlantisjs.svg') format('svg'), url('fonts/atlantisjs.woff') format('woff'), url('fonts/atlantisjs.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -55,12 +55,6 @@ The control icons are from a custom font. Each icon corresponds to a character
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-div.atlantis-js div:focus{
-    outline:none;
-}
-div.atlantis-js video:focus{
-    outline:none;
-}
 /* Control Bar
 --------------------------------------------------------------------------------
 The default control bar that is a container for most of the controls.
@@ -78,9 +72,8 @@ The default control bar that is a container for most of the controls.
   /* Height includes any margin you want above or below control items */
   height: 3.0em;
   /* background-color-with-alpha */
-  background-color: rgba(250,250,250,.9);
+  background-color: #222;
   z-index:4;
-    color:#000;
 }
 /* Show the control bar only once the video has started playing */
 .ajs-default-skin.vjs-has-started .vjs-control-bar {
@@ -244,13 +237,13 @@ fonts to show/hide properly.
 */
 .ajs-default-skin .vjs-progress-control {
   position: absolute;
-  left: 20em;
+  left: 0;
   right: 0;
-  width: 50em;
+  width: auto;
   font-size: 0.3em;
   height: 1em;
   /* Set above the rest of the controls. */
-  top: 7em;
+  top: -1em;
   /* Shrink the bar slower than it grows. */
   /* transition */
   -webkit-transition: all 0.4s;
@@ -262,8 +255,7 @@ fonts to show/hide properly.
     This simply changes the overall font for the progress bar, and this
     updates both the em-based widths and heights, as wells as the icon font */
 .ajs-default-skin:hover .vjs-progress-control {
-  font-size: .32em;
-    left:18em;
+  font-size: .9em;
   /* Even though we're not changing the top/height, we need to include them in
       the transition so they're handled correctly. */
 
@@ -355,7 +347,7 @@ fonts to show/hide properly.
 Positioning of the play button in the center or other corners can be done more
 easily in the skin designer. http://designer.videojs.com/
 */
-.ajs-default-skin div.vjs-big-play-button {
+.ajs-default-skin .vjs-big-play-button {
     display: block; /* Start hidden */
     z-index: 4;
     position: absolute;
@@ -367,10 +359,10 @@ easily in the skin designer. http://designer.videojs.com/
     text-align: center;
     vertical-align: center;
     cursor: pointer !important;
-    border: 3px solid #EEE;
+    border: 0em solid #EEE;
     opacity: 1;
-  background: rgba(56, 56, 56, .75);
-  border-radius:100%;
+  background: rgb(56, 56, 56);
+  border-radius:6px;
     background: linear-gradient(top, #454545 0%,#232323 50%,#161616 50%,#3f3f3f 100%);
     /* CSS Shadows */
     -webkit-box-shadow:0 0 400px rgba(255,255,255,0.8), 0 0 300px rgba(255,255,255,0.8), 0 0 200px rgba(255,255,255,0.8);
@@ -420,7 +412,6 @@ easily in the skin designer. http://designer.videojs.com/
     width: 35px;
     height: 42px;
     margin: -30px 0 0 -22px; /* Using negative margin to center image. */
-    line-height: initial;
 }
 .ajs-default-skin .vjs-big-play-button  span:before {
           content: '\E006';
@@ -639,7 +630,6 @@ control positioning and full window mode. **
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-    max-width:100%;
 }
 /* Playback technology elements expand to the width/height of the containing div
     <video> or <object> */
@@ -687,7 +677,7 @@ body.vjs-full-window {
 .vjs-poster {
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: cover;
+  background-size: contain;
   cursor: pointer;
   height: 100%;
   margin: 0;
@@ -804,8 +794,8 @@ div.vjs-control-bar div.vjs-sharing-button .vjs-menu-item
     height: 1.35em;
     margin: 0 0;
     opacity: 1;
-    background: #FFF;
-    font-family: Helvetica, sans-serif;
+    background: none repeat scroll 0 0 #333;
+    font-family: Arial, sans-serif;
     font-size: 1.333em;
 }
 
@@ -827,7 +817,7 @@ div.vjs-control-bar div.vjs-sharing-button .vjs-share-network
     margin-top:0em;
     background:none;
     float:left;
-    font-family: Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
   
   height:16px;
   padding: 0;
@@ -872,7 +862,7 @@ div.vjs-control-bar div.vjs-sharing-button .vjs-menu-title
     margin: 0 0;
     padding: 0.2em 0 0.1em;
     text-transform: none;
-    font-family: Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
   background: none repeat scroll 0 0 #333;
   display:none;
 }
@@ -895,7 +885,7 @@ div.vjs-control-bar div.vjs-sharing-button div.vjs-menu-arrow
     margin: 0;
     padding: 0;
     width: 0;
-    border-color: rgba(250,250,250,.9) transparent transparent;
+    border-color: #333 transparent transparent;
     border-style: solid;
     border-width: 0.9em 0.9em 0;
 }
@@ -1002,7 +992,7 @@ div.calltoaction {
   
   
 
-    font-family: 'Helvetica', Verdana, Helvetica, sans-serif;
+    font-family: 'Aldrich', Verdana, Helvetica, sans-serif;
     opacity: 0;
     -moz-transition: opacity 0.3s ease-in 0s;
     -o-transition: opacity 0.3s ease-in 0s;
@@ -1048,29 +1038,25 @@ div.ajs-end-of-video-call-to-action-container {
   position: absolute;
   z-index:3;
   background: inherit;
-    background-color:#d3d3d3;
   top: 0;
-  bottom: 3.5em;
+  bottom: 3.8em;
   right: 0;
   left: 0;
-    background-size:cover;
-    background-repeat:no-repeat; 
 }
 
 div.ajs-end-of-video-call-to-action {
-  position: relative;
+  position: absolute;
   z-index:3;
   text-align: left;
   background: inherit;
   color:#fff;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-  font-family: Helvetica;
+  top: .3em;
+  bottom: .3em;
+  right: 0;
+  font-family: inherit;
+  left: 0;
   font-size: 1.9em;
   padding: 2em 4em;
-    box-sizing:border-box;
 }
 
 div.ajs-end-of-video-call-to-action-small h2 {
@@ -1174,21 +1160,24 @@ div.ajs-end-of-video-call-to-action-small {
 }
 
 a.ajs-call-to-action-button {
-    box-sizing:border-box;
-    position: absolute;
-    bottom: 1em;
+    position: relative;
+    top: 0.6em;
     font-family: inherit;
     font-size: 1.3em;
     color: #123d54;
     padding: .2em 1em .2em;
+    height: 1.4em;
   text-decoration:none;
   margin: 0 auto;
-    width:50%;
-  max-width: 50%;
-    left:50%;
-    margin-left:-25%;
+  display:block;
+  width: 7em;
   text-align: center;
-    background: rgba(250,250,250,.9); /* Old browsers */
+    background: #FFDB56; /* Old browsers */
+    background: -moz-linear-gradient( top, #FFDB56 0%, #FFE177);
+    background: -webkit-gradient( linear, left top, left bottom, from(#FFDB56), to(#FFE177));
+    background: -webkit-linear-gradient(center top, #FFDB56 0%, #FFE177 100%);
+    background: -o-linear-gradient(center top, #FFDB56 0%, #FFE177 100%);
+    background: -ms-linear-gradient(center top, #FFDB56 0%, #FFE177 100%);  
   font-weight:bold;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -1217,9 +1206,8 @@ a.ajs-call-to-action-button {
 
 a.ajs-call-to-action-button:hover {
   cursor: pointer;
-    background-color: #FACF34;
-  /*background: -moz-linear-gradient( top, #FACF34 0%, #FCD858);
-  background: -webkit-gradient( linear, left top, left bottom, from(#FACF34), to(#FCD858));*/
+  background: -moz-linear-gradient( top, #FACF34 0%, #FCD858);
+  background: -webkit-gradient( linear, left top, left bottom, from(#FACF34), to(#FCD858));
 }
 
 /*#source /local/plugins/resolutionswitching/style/resolution.css */
@@ -1243,7 +1231,7 @@ div.vjs-control-bar div.vjs-quality-button div
 
 div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
 {
-    font-family: Helvetica,sans-serif;
+    font-family: Arial,sans-serif;
   font-size:1.2em;
 }
 
@@ -1266,8 +1254,8 @@ div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
         height: 1.4em;
         margin: 0 0;
         opacity: 1;
-        background: rgba(250,250,250,.9);
-        font-family: Helvetica, sans-serif;
+        background: none repeat scroll 0 0 #333;
+        font-family: Arial, sans-serif;
     }
 
 @media all and (max-device-width: 50em) {
@@ -1280,9 +1268,8 @@ div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
 div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected
 {
     list-style: none;
-    background-color:rgba(0,0,0,.4);
     text-decoration: none;
-    color: #000;
+    color: #FFFFFF;
   padding: 0.2em 1.2em 0.2em 0em;
 }
 
@@ -1314,13 +1301,13 @@ div.vjs-control-bar div.vjs-quality-button .vjs-menu-title
     margin: 0 0;
     padding: 0.2em 0 0.2em;
     text-transform: none;
-    font-family: Helvetica, sans-serif;
-  background: rgba(250,250,250,.9);
+    font-family: Arial, sans-serif;
+  background: none repeat scroll 0 0 #333;
 }
 
 div.vjs-control-bar div.vjs-quality-button .vjs-menu-title:hover
 {
-    color: #000;
+    color: #ccc
 }
 
 div.vjs-control-bar div.vjs-quality-button li.vjs-menu-arrow
@@ -1590,7 +1577,7 @@ div.selectionButton:hover span.video-selection-play-overlay:before{
 
 span.selectionText {
   font-size:1.2em;
-  font-family:'Helvetica', sans-serif;
+  font-family:'Aldrich', sans-serif;
   text-align: center;
   width:100%;
   color: #FFF;
@@ -1684,7 +1671,7 @@ div.ajs-poster-title{
   color: white;
   z-index: 1;
   padding: 0.1em 0.5em 0.1em 1.3em;
-  font-family: Helvetica;
+  font-family: Aldrich;
 }
 
 div.ajs-poster-mask{
@@ -1723,9 +1710,9 @@ div.ajs-poster-mask{
 
 
 span.video-pause-call-to-action, span.ajs-video-annotation{
-  background:rgba(250,250,250,.75);
+  background:#222;
   padding:0.3em 0;
-  color:#000; 
+  color:#FFE; 
   display:block;
   width:100%;
   font-size:1.7em;
@@ -1733,30 +1720,27 @@ span.video-pause-call-to-action, span.ajs-video-annotation{
   top:0;
   z-index:4;
   cursor:default;
-  font-family: 'Helvetica',sans-serif;
+  font-family: 'Aldrich',sans-serif;
   transition: opacity .3s ease-in-out;
    -moz-transition: opacity .3s ease-in-out .2s;
    -webkit-transition: opacity .3s ease-in-out .2s;
 }
 
 span.video-pause-call-to-action a:visited{
-  color:#000;  
+  color:#FFDB60;  
   text-decoration:underline;
 }
 
 span.video-pause-call-to-action a:link{
-  color:#000;
+  color:#FFDB60;
   text-decoration:underline;
 }
 
 span.video-pause-call-to-action a:hover{
-  color:#fff;
-  text-decoration:underline; 
+  color:#FFEE88;
+  text-decoration:underline;  
 }
-span.video-pause-call-to-action img.video-pause-image{
-    max-width:40%;
-    height:auto;
-}
+
 div.vjsInvisible span.video-pause-call-to-action{
   opacity:0;
 }
@@ -1835,7 +1819,7 @@ div.ajs-hotspot-splash{
   
   cursor: default;
 
-    font-family: 'Helvetica', Verdana, Helvetica, sans-serif;
+    font-family: 'Aldrich', Verdana, Helvetica, sans-serif;
     -moz-transition: opacity 0.3s ease-in 0s;
     -o-transition: opacity 0.3s ease-in 0s;
     -webkit-transition: opacity 0.3s ease-in 0s;
@@ -1919,34 +1903,4 @@ div.ajs-logo{
   position: relative;
   top:25px;
   left: 25px;
-}
-a.ajs-call-to-action-button-image{
-    box-sizing:border-box;
-    position: absolute;
-    font-family: inherit;
-    padding: .2em 1em .2em;
-    text-decoration:none;
-    margin: 0 auto;
-    max-width: 50%;
-    text-align: center;
-}
-.ajs-end-of-video-call-to-action.image-link a{
-    background:transparent !important;
-}
-a.ajs-call-to-action-button-image img {
-  width: 100%;
-  height: auto;
-}
-/* full screen overrides */
-.vjs-fullscreen {
-   font-size:1em;
-}
-.vjs-fullscreen .vjs-progress-control{
-    left:40em;
-    width:50%;
-    top:3.5em;
-}
-.vjs-fullscreen.ajs-default-skin:hover .vjs-progress-control{
-    left:40em;
-    font-size:.3em;
 }

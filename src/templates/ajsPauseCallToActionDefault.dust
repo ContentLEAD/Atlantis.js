@@ -1,5 +1,21 @@
 <div class="video-pause-toggle">
 	<span class="video-pause-call-to-action">
-		{model.text|s}
+        {#model.image}
+        {#model.assetGateway}
+        <a href="javascript:void(0)" data-br-form-id="{model.assetGateway.id}" class="br-form-link" ><img src="{model.image|s}" class="video-pause-image"></a>
+        {:else}
+        <a href="{model.link|s}" class="pause-call-to-action-link"><img src="{model.image|s}" class="video-pause-image"></a>
+        {/model.assetGateway}
+        {:else}
+        {#model.assetGateway}
+        <a href="javascript:void(0)" data-br-form-id="{model.assetGateway.id}" class="br-form-link" >{model.text|s}</a>
+        {:else}
+        {#model.link}
+        <a href="{model.link|s}" class="pause-call-to-action-link">{model.text|s}</a>
+        {:else}
+        {model.text|s}
+        {/model.link}
+        {/model.assetGateway}
+        {/model.image}
 	</span>
 </div>

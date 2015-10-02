@@ -1,0 +1,9 @@
+<div class="video-pause-toggle pause-background" style="background:url({model.background|s});background-size:cover;">
+	<span class="video-pause-call-to-action">
+        {#model.assetGateway}
+        <a href="javascript:void(0)" data-br-form-id="{model.assetGateway.id}" class="br-form-link" >{model.text|s}</a>
+        {:else}
+        <a href="{model.link|s}" class="pause-call-to-action-link">{model.text|s}</a>
+        {/model.assetGateway}
+	</span>
+</div>
