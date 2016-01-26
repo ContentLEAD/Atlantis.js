@@ -831,6 +831,7 @@ div.vjs-control-bar div.vjs-sharing-button .vjs-share-network
   
   height:16px;
   padding: 0;
+    display:none;
 }
 
 div.vjs-control-bar div.vjs-sharing-button .vjs-share-network span
@@ -841,7 +842,11 @@ div.vjs-control-bar div.vjs-sharing-button .vjs-share-network span
     z-index: 2;
     position: relative;
 }
-
+div.vjs-control-bar div.vjs-sharing-button .vjs-menu img.vjs-share-icon{
+    width:16px !important;
+    max-width:16px !important;
+    margin-left:2px !important;
+}
 div.vjs-control-bar div.vjs-sharing-button span.vjs-share-icon-background {   
     left: 1.4em;
     top: 0;
@@ -863,6 +868,7 @@ div.vjs-control-bar div.vjs-sharing-button .vjs-menu
     -webkit-box-shadow: none;
     box-shadow: none;
     opacity: 0.9;
+    padding: 0 0 0 183%;
 }
 
 div.vjs-control-bar div.vjs-sharing-button .vjs-menu-title
@@ -879,7 +885,7 @@ div.vjs-control-bar div.vjs-sharing-button .vjs-menu-title
 
 div.vjs-control-bar div.vjs-sharing-button li.vjs-menu-arrow
 {
-    padding: 0 0 0 3.0em;
+    padding: 0 0 0 0;
 }
 
 div.vjs-control-bar div.vjs-sharing-button li.vjs-menu-arrow:hover
@@ -897,7 +903,7 @@ div.vjs-control-bar div.vjs-sharing-button div.vjs-menu-arrow
     width: 0;
     border-color: rgba(250,250,250,.9) transparent transparent;
     border-style: solid;
-    border-width: 0.9em 0.9em 0;
+    border-width: 0.75em 0.75em 0;
 }
 
 
@@ -1249,7 +1255,7 @@ div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
 
 .vjs-control-bar .vjs-quality-button .vjs-menu
 {
-    width:6.5em;
+    width:10.5em;
     left:-5em;
   height:auto;
   bottom:0;
@@ -1280,7 +1286,7 @@ div.vjs-control-bar div.vjs-quality-button span.vjs-quality-text
 div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected
 {
     list-style: none;
-    background-color:rgba(0,0,0,.4);
+    /*background-color:rgba(0,0,0,.4);*/
     text-decoration: none;
     color: #000;
   padding: 0.2em 1.2em 0.2em 0em;
@@ -1292,7 +1298,7 @@ div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected:before
   font-family:"Atlantis";
   font-size:0.7em;
   padding:0 0.5em;
-  color:#FFF;
+  color:#000;
 }
 
 div.vjs-control-bar div.vjs-quality-button ul.vjs-menu li.vjs-selected:hover
