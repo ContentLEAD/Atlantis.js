@@ -2,27 +2,378 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
 ===================================================================
 --- src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
 +++ src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
-@@ -21,9 +21,12 @@
-     vertical-align: middle;
-     font-weight:400;
-     font-style:normal;
-     font-family:$primary-font;
-+    -webkit-user-select: none;
-+       -moz-user-select: none;
-+        -ms-user-select: none;
-+            user-select: none;
--    user-select: none;
-     
-     .vjs-tech{
-         position:absolute;
-         top:0;
-@@ -116,6 +119,7 @@
-     height:16%;
-     margin-left: -5%;
-     margin-top: -8%;
-     opacity: .75;
-+    -webkit-animation: spin 1.5s infinite linear;
-+            animation: spin 1.5s infinite linear;
--    animation: spin 1.5s infinite linear;
+@@ -25,10 +25,8 @@
+     background-color: #ccc;
+ 
+     &:focus {
+       /* box-shadow */
+-      -webkit-box-shadow: 0 0 2em #ffffff;
+-      -moz-box-shadow: 0 0 2em #ffffff;
+       box-shadow: 0 0 2em #ffffff;
+     }
+   }
+ 
+@@ -52,11 +50,9 @@
+ 
+       /* Rotate the square icon to make a diamond */
+       /* transform */
+       -webkit-transform: rotate(-45deg);
+-      -moz-transform: rotate(-45deg);
+       -ms-transform: rotate(-45deg);
+-      -o-transform: rotate(-45deg);
+       transform: rotate(-45deg);
+     }
+   }
  }
-\ No newline at end of file
+@@ -109,11 +105,8 @@
+       visibility: visible;
+       opacity: 1;
+ 
+       /* transition */
+-      -webkit-transition: visibility 0.1s, opacity 0.1s;
+-      -moz-transition: visibility 0.1s, opacity 0.1s;
+-      -o-transition: visibility 0.1s, opacity 0.1s;
+       transition: visibility 0.1s, opacity 0.1s;
+     }
+ 
+     &.vjs-user-inactive.vjs-playing .vjs-control-bar {
+@@ -121,11 +114,8 @@
+       visibility: hidden;
+       opacity: 0;
+ 
+       /* transition */
+-      -webkit-transition: visibility 1s, opacity 1s;
+-      -moz-transition: visibility 1s, opacity 1s;
+-      -o-transition: visibility 1s, opacity 1s;
+       transition: visibility 1s, opacity 1s;
+     }
+   }
+ 
+@@ -265,11 +255,8 @@
+     top: 7em;
+ 
+     /* Shrink the bar slower than it grows. */
+     /* transition */
+-    -webkit-transition: all 0.4s;
+-    -moz-transition: all 0.4s;
+-    -o-transition: all 0.4s;
+     transition: all 0.4s;
+   }
+ 
+   &:hover .vjs-progress-control {
+@@ -279,11 +266,8 @@
+     /* Even though we're not changing the top/height, we need to include them in
+         the transition so they're handled correctly. */
+ 
+     /* transition */
+-    -webkit-transition: all 0.2s;
+-    -moz-transition: all 0.2s;
+-    -o-transition: all 0.2s;
+     transition: all 0.2s;
+   }
+ 
+   .vjs-progress-holder {
+@@ -438,15 +422,9 @@
+     border-radius: 100%;
+     background: linear-gradient(top, #454545 0%, #232323 50%, #161616 50%, #3f3f3f 100%);
+ 
+     /* CSS Shadows */
+-    -webkit-box-shadow: 0 0 400px rgba(255, 255, 255, 0.8), 0 0 300px rgba(255, 255, 255, 0.8), 0 0 200px rgba(255, 255, 255, 0.8);
+-    -moz-box-shadow: 0 0 400px rgba(255, 255, 255, 0.8), 0 0 300px rgba(255, 255, 255, 0.8), 0 0 200px rgba(255, 255, 255, 0.8);
+     box-shadow: 0 0 400px rgba(255, 255, 255, 0.8), 0 0 300px rgba(255, 255, 255, 0.8), 0 0 200px rgba(255, 255, 255, 0.8);
+-    -webkit-transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+-    -moz-transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+-    -ms-transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+-    -o-transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+     transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+   }
+ 
+   &.vjs-controls-disabled .vjs-big-play-button, &.vjs-has-started .vjs-big-play-button, &.vjs-using-native-controls .vjs-big-play-button {
+@@ -461,16 +439,11 @@
+     background-color: #505050;
+     background-color: rgba(50, 50, 50, 0.75);
+ 
+     /* box-shadow */
+-    -webkit-box-shadow: 0 0 3em #ffffff;
+-    -moz-box-shadow: 0 0 3em #ffffff;
+     box-shadow: 0 0 3em #ffffff;
+ 
+     /* transition */
+-    -webkit-transition: all 0s;
+-    -moz-transition: all 0s;
+-    -o-transition: all 0s;
+     transition: all 0s;
+   }
+ 
+   div.vjs-big-play-button span {
+@@ -531,10 +504,8 @@
+   opacity: 0.75;
+ 
+   /* animation */
+   -webkit-animation: spin 1.5s infinite linear;
+-  -moz-animation: spin 1.5s infinite linear;
+-  -o-animation: spin 1.5s infinite linear;
+   animation: spin 1.5s infinite linear;
+ }
+ 
+ /* .ajs-default-skin .vjs-loading-spinner:before {
+@@ -547,18 +518,9 @@
+   height: 1em;
+   text-align: center;
+   text-shadow: 0em 0em 0.1em #000;
+ } */
+-@-moz-keyframes spin {
+-  0% {
+-    -moz-transform: rotate(0deg);
+-  }
+ 
+-  100% {
+-    -moz-transform: rotate(359deg);
+-  }
+-}
+-
+ @-webkit-keyframes spin {
+   0% {
+     -webkit-transform: rotate(0deg);
+   }
+@@ -567,25 +529,17 @@
+     -webkit-transform: rotate(359deg);
+   }
+ }
+ 
+-@-o-keyframes spin {
+-  0% {
+-    -o-transform: rotate(0deg);
+-  }
+-
+-  100% {
+-    -o-transform: rotate(359deg);
+-  }
+-}
+-
+ @keyframes spin {
+   0% {
++    -webkit-transform: rotate(0deg);
++            transform: rotate(0deg);
+-    transform: rotate(0deg);
+   }
+ 
+   100% {
++    -webkit-transform: rotate(359deg);
++            transform: rotate(359deg);
+-    transform: rotate(359deg);
+   }
+ }
+ 
+ /* Menu Buttons (Captions/Subtitles/etc.)
+@@ -641,10 +595,8 @@
+       background-color: #07141e;
+       background-color: rgba(7, 20, 30, 0.7);
+ 
+       /* box-shadow */
+-      -webkit-box-shadow: -0.2em -0.2em 0.3em rgba(255, 255, 255, 0.2);
+-      -moz-box-shadow: -0.2em -0.2em 0.3em rgba(255, 255, 255, 0.2);
+       box-shadow: -0.2em -0.2em 0.3em rgba(255, 255, 255, 0.2);
+     }
+ 
+     &:hover .vjs-menu {
+@@ -707,10 +659,8 @@
+     }
+ 
+     &:focus .vjs-control-content:before, &:hover .vjs-control-content:before {
+       /* box-shadow */
+-      -webkit-box-shadow: 0 0 1em #ffffff;
+-      -moz-box-shadow: 0 0 1em #ffffff;
+       box-shadow: 0 0 1em #ffffff;
+     }
+   }
+ }
+@@ -915,22 +865,18 @@
+ @media all {
+   div.vjs-control-bar {
+     font-size: 1.2em;
+     -webkit-transform: rotate(0);
+-    -moz-transform: rotate(0);
+     -ms-transform: rotate(0);
+-    -o-transform: rotate(0);
+     transform: rotate(0);
+   }
+ }
+ 
+ @media all and (max-device-width: 50em) {
+   div.vjs-control-bar {
+     font-size: 1.8em;
+     -webkit-transform: rotate(0);
+-    -moz-transform: rotate(0);
+     -ms-transform: rotate(0);
+-    -o-transform: rotate(0);
+     transform: rotate(0);
+   }
+ }
+ 
+@@ -1021,9 +967,8 @@
+       left: 1em;
+       background: none;
+       /*border: none;*/
+         border:1px solid #FFFFFF;
+-      -webkit-box-shadow: none;
+       box-shadow: none;
+       opacity: 1;
+       padding: 0 0 0 0;
+     }
+@@ -1153,18 +1098,11 @@
+     z-index: 2;
+     background: rgb(85, 105, 132);
+ 
+     /* Old browsers */
+-    background: -moz-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141)) repeat scroll 0 0 transparent;
+-    background: -webkit-gradient(linear, left top, left bottom, from(rgb(85, 105, 132)), to(rgb(92, 113, 141)));
+-    background: -webkit-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%);
+-    background: -o-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%);
+     background: -ms-linear-gradient(center top, rgb(85, 105, 132) 0%, rgb(92, 113, 141) 100%);
+     font-family: 'Helvetica', Verdana, Helvetica, sans-serif;
+     opacity: 0;
+-    -moz-transition: opacity 0.3s ease-in 0s;
+-    -o-transition: opacity 0.3s ease-in 0s;
+-    -webkit-transition: opacity 0.3s ease-in 0s;
+     transition: opacity 0.3s ease-in 0s;
+   }
+ 
+   &.calltoactioninsert {
+@@ -1334,10 +1272,8 @@
+   background: rgba(250, 250, 250, 0.9);
+ 
+   /* Old browsers */
+   font-weight: bold;
+-  -moz-border-radius: 5px;
+-  -webkit-border-radius: 5px;
+   border-radius: 5px;
+   border: 0px solid #003366;
+ }
+ 
+@@ -1396,9 +1332,8 @@
+   height: auto;
+   bottom: 0;
+   background: none;
+   border: none;
+-  -webkit-box-shadow: none;
+   box-shadow: none;
+   opacity: 0.9;
+ }
+ 
+@@ -1482,11 +1417,8 @@
+     margin: 0.5%;
+     background: rgb(100, 100, 100);
+ 
+     /* Old browsers */
+-
+-    -moz-transition: background 0.1s ease-in 0s;
+-    -o-transition: background 0.1s ease-in 0s;
+     transition: background 0.1s ease-in 0s;
+     -webkit-transition: background 0.1s ease-in 0s;
+     height: 100%;
+     width: 32.3%;
+@@ -1520,10 +1452,8 @@
+     cursor: pointer;
+     background: rgb(80, 80, 80);
+ 
+     /* Old browsers */
+-    -moz-transition: background 0s ease-in 0s;
+-    -o-transition: background 0s ease-in 0s;
+     transition: background 0s ease-in 0s;
+     -webkit-transition: background 0s ease-in 0s;
+   }
+ 
+@@ -1538,10 +1468,8 @@
+     text-rendering: optimizeLegibility;
+     -webkit-text-stroke: 0.1px;
+     width: 96%;
+     color: white;
+-    -moz-transition: opacity 0.1s ease-in 0s;
+-    -o-transition: opacity 0.1s ease-in 0s;
+     transition: opacity 0.1s ease-in 0s;
+     -webkit-transition: opacity 0.1s ease-in 0s;
+     line-height: 1.3em;
+   }
+@@ -1561,10 +1489,8 @@
+ 
+ div {
+   &.ajs-related-video-container:hover p {
+     opacity: 1;
+-    -moz-transition: opacity 0 ease-in 0s;
+-    -o-transition: opacity 0 ease-in 0s;
+     transition: opacity 0 ease-in 0s;
+     -webkit-transition: opacity 0 ease-in 0s;
+   }
+ 
+@@ -1579,10 +1505,8 @@
+     font-size: 1.5em;
+     color: white;
+     font-family: Verdana;
+     opacity: 0;
+-    -moz-transition: opacity 0.3s ease-in 0s;
+-    -o-transition: opacity 0.3s ease-in 0s;
+     transition: opacity 0.3s ease-in 0s;
+     -webkit-transition: opacity 0.3s ease-in 0s;
+     overflow: hidden;
+     line-height: 1.0em;
+@@ -1670,19 +1594,15 @@
+     height: 48%;
+     border: none;
+     -webkit-transition: height 0.3s ease-out 0s;
+     opacity: 0.7;
+-    -moz-transition: opacity 0.1s ease-in 0s;
+-    -o-transition: opacity 0.1s ease-in 0s;
+     transition: opacity 0.1s ease-in 0s;
+     -webkit-transition: opacity 0.1s ease-in 0s;
+     -webkit-transform: translateZ(0);
+   }
+ 
+   &:hover img {
+     opacity: 1;
+-    -moz-transition: opacity 0 ease-in 0s;
+-    -o-transition: opacity 0 ease-in 0s;
+     transition: opacity 0 ease-in 0s;
+     -webkit-transition: opacity 0 ease-in 0s;
+   }
+ }
+@@ -1699,12 +1619,8 @@
+   cursor: pointer;
+   margin: 0 0.4em 0.55em 0.3em;
+   padding: 0em;
+   opacity: 0.7;
+-  -webkit-transition: opacity 0.2s ease-in-out;
+-  -moz-transition: opacity 0.2s ease-in-out;
+-  -ms-transition: opacity 0.2s ease-in-out;
+-  -o-transition: opacity 0.2s ease-in-out;
+   transition: opacity 0.2s ease-in-out;
+ 
+   &:hover {
+     opacity: 1;
+@@ -1817,14 +1733,9 @@
+     width: 100%;
+     position: relative;
+     z-index: 2;
+     opacity: 0;
+-    -webkit-transition: opacity 0.2s ease-in-out;
+-    -moz-transition: opacity 0.2s ease-in-out;
+-    -ms-transition: opacity 0.2s ease-in-out;
+-    -o-transition: opacity 0.2s ease-in-out;
+     transition: opacity 0.2s ease-in-out;
+-    -webkit-box-shadow: inset 0 0 250px rgba(255, 255, 255, 0.3);
+     box-shadow: inset 0 0 250px rgba(255, 255, 255, 0.3);
+   }
+ }
+ 
+@@ -1963,11 +1874,8 @@
+     z-index: 10;
+     background: #000522;
+     cursor: default;
+     font-family: 'Helvetica', Verdana, Helvetica, sans-serif;
+-    -moz-transition: opacity 0.3s ease-in 0s;
+-    -o-transition: opacity 0.3s ease-in 0s;
+-    -webkit-transition: opacity 0.3s ease-in 0s;
+     transition: opacity 0.3s ease-in 0s;
+     opacity: 0;
+ 
+     img {

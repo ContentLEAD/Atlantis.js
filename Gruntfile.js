@@ -58,7 +58,7 @@ module.exports = function (grunt) {
 		files: {
 		  'build/js/atlantisjs.css': ['src/css/atlantisjs.css'],
           'build/js/atlantisjs.orig.css': ['src/css/atlantisjs.orig.css'],
-            'build/js/<%= ver %>/atlantisjs<%= ver %>.css': ['src/css/atlantisjs.alt.css']
+          'build/js/<%= ver %>/atlantisjs<%= ver %>.css': ['src/css/social.css','src/css/atlantisjs.alt.css']
 		}
 	  }
 	},
@@ -134,5 +134,5 @@ module.exports = function (grunt) {
 	
   }); 
   grunt.registerTask('test', ['typescript:test','jasmine']);   
-  grunt.registerTask('build', ['typescript:src', 'dustjs', 'concat', 'uglify', 'cssmin','copy','compress:js','compress:css','autoprefixer','sass']);
+  grunt.registerTask('build', ['typescript:src', 'dustjs', 'sass','concat', 'uglify', 'cssmin','copy','compress:js','compress:css','autoprefixer']);
 };
