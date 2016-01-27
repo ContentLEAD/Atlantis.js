@@ -211,17 +211,17 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
    }
  }
  
-@@ -1021,9 +967,8 @@
+@@ -1020,9 +966,8 @@
+       height: auto;
        left: 1em;
        background: none;
-       /*border: none;*/
-         border:1px solid #FFFFFF;
+       border: none;
 -      -webkit-box-shadow: none;
        box-shadow: none;
        opacity: 1;
        padding: 0 0 0 0;
      }
-@@ -1153,18 +1098,11 @@
+@@ -1152,18 +1097,11 @@
      z-index: 2;
      background: rgb(85, 105, 132);
  
@@ -240,7 +240,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
    }
  
    &.calltoactioninsert {
-@@ -1334,10 +1272,8 @@
+@@ -1333,10 +1271,8 @@
    background: rgba(250, 250, 250, 0.9);
  
    /* Old browsers */
@@ -251,7 +251,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
    border: 0px solid #003366;
  }
  
-@@ -1396,9 +1332,8 @@
+@@ -1395,9 +1331,8 @@
    height: auto;
    bottom: 0;
    background: none;
@@ -261,7 +261,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
    opacity: 0.9;
  }
  
-@@ -1482,11 +1417,8 @@
+@@ -1481,11 +1416,8 @@
      margin: 0.5%;
      background: rgb(100, 100, 100);
  
@@ -273,7 +273,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
      -webkit-transition: background 0.1s ease-in 0s;
      height: 100%;
      width: 32.3%;
-@@ -1520,10 +1452,8 @@
+@@ -1519,10 +1451,8 @@
      cursor: pointer;
      background: rgb(80, 80, 80);
  
@@ -284,7 +284,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
      -webkit-transition: background 0s ease-in 0s;
    }
  
-@@ -1538,10 +1468,8 @@
+@@ -1537,10 +1467,8 @@
      text-rendering: optimizeLegibility;
      -webkit-text-stroke: 0.1px;
      width: 96%;
@@ -295,7 +295,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
      -webkit-transition: opacity 0.1s ease-in 0s;
      line-height: 1.3em;
    }
-@@ -1561,10 +1489,8 @@
+@@ -1560,10 +1488,8 @@
  
  div {
    &.ajs-related-video-container:hover p {
@@ -306,7 +306,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
      -webkit-transition: opacity 0 ease-in 0s;
    }
  
-@@ -1579,10 +1505,8 @@
+@@ -1578,10 +1504,8 @@
      font-size: 1.5em;
      color: white;
      font-family: Verdana;
@@ -317,7 +317,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
      -webkit-transition: opacity 0.3s ease-in 0s;
      overflow: hidden;
      line-height: 1.0em;
-@@ -1670,19 +1594,15 @@
+@@ -1669,19 +1593,15 @@
      height: 48%;
      border: none;
      -webkit-transition: height 0.3s ease-out 0s;
@@ -337,7 +337,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
      -webkit-transition: opacity 0 ease-in 0s;
    }
  }
-@@ -1699,12 +1619,8 @@
+@@ -1698,12 +1618,8 @@
    cursor: pointer;
    margin: 0 0.4em 0.55em 0.3em;
    padding: 0em;
@@ -350,7 +350,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
  
    &:hover {
      opacity: 1;
-@@ -1817,14 +1733,9 @@
+@@ -1816,14 +1732,9 @@
      width: 100%;
      position: relative;
      z-index: 2;
@@ -365,7 +365,7 @@ Index: src/css/atlantisjs.ven.css/src/css/atlantisjs.alt.scss
    }
  }
  
-@@ -1963,11 +1874,8 @@
+@@ -1962,11 +1873,8 @@
      z-index: 10;
      background: #000522;
      cursor: default;

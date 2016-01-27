@@ -53,15 +53,6 @@ module.exports = function (grunt) {
 		dest: 'build/js/atlantis.js',
 	  },
 	},
-    cssmin: {
-	  combine: {
-		files: {
-		  'build/js/atlantisjs.css': ['src/css/atlantisjs.css'],
-          'build/js/atlantisjs.orig.css': ['src/css/atlantisjs.orig.css'],
-          'build/js/<%= ver %>/atlantisjs<%= ver %>.css': ['src/css/social.css','src/css/atlantisjs.alt.css']
-		}
-	  }
-	},
 	uglify: {
 	  my_target: {
 		files: {
@@ -106,6 +97,15 @@ module.exports = function (grunt) {
             }
         }
     },
+    cssmin: {
+	  combine: {
+		files: {
+		  'build/js/atlantisjs.css': ['src/css/atlantisjs.css'],
+          'build/js/atlantisjs.orig.css': ['src/css/atlantisjs.orig.css'],
+          'build/js/<%= ver %>/atlantisjs.min.<%= ver %>.css': ['src/css/social.css','src/css/atlantisjs.alt.css']
+		}
+	  }
+	},
     autoprefixer: {
         options: {
             browsers: ['last 2 version', 'ie 8', 'ie 9'],
@@ -126,7 +126,10 @@ module.exports = function (grunt) {
           {expand: true, cwd: 'src/', src: ['fonts/*'], dest: 'build/js/<%= ver %>/', filter: 'isFile'}, // for versioning
 		]
 	  }
-	}
+	},
+    zip: {
+        'build/js/<%= ver %>/AtlantisJs.<%= ver %>.zip' : ['build/js/<%= ver %>/*','build/js/<%= ver %>/*/**']
+    }
   });
   
   grunt.registerTask('updatebower', function (){
@@ -134,5 +137,5 @@ module.exports = function (grunt) {
 	
   }); 
   grunt.registerTask('test', ['typescript:test','jasmine']);   
-  grunt.registerTask('build', ['typescript:src', 'dustjs', 'sass','concat', 'uglify', 'cssmin','copy','compress:js','compress:css','autoprefixer']);
+  grunt.registerTask('build', ['typescript:src', 'dustjs', 'sass','concat', 'uglify', 'cssmin','copy','compress:js','compress:css','autoprefixer', 'zip']);
 };

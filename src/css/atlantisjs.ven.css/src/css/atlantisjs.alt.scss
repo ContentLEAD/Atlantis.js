@@ -961,13 +961,12 @@ div {
 
     .vjs-menu {
       /*width: 9.0em;*/
-        width:3.0em;
+        width:3.0em !important;
       bottom: 0;
       height: auto;
       left: 1em;
       background: none;
-      /*border: none;*/
-        border:1px solid #FFFFFF;
+      border: none;
       box-shadow: none;
       opacity: 1;
       padding: 0 0 0 0;
